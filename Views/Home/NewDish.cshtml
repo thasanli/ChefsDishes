@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "New Dish";
+}
+
+@model Dish
+
+<div class="NewChefcontainer">
+    <h2>Add a Dish</h2>
+
+    <form asp-action="AddNewDish" asp-controller="home" method="post">
+        <label asp-for="Name">Name of Dish </label>
+        <input asp-for="Name" type="text">
+        <label asp-for="Calories"> # of Calories</label>
+        <input asp-for="Calories" type="text">
+        <label asp-for="Description"> Description</label>
+        <input asp-for="Description" type="text">
+        <select asp-for="Tastiness"> 
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+            <select asp-for="ChefId"> 
+                @foreach (var item in ViewBag.AllChefs)
+                {
+                    <option value="@item.ChefId">@item.FirstName @item.LastName</option>
+                }
+        </select>
+        <button type="submit"> Add Dish</button>
+    </form>
+</div>

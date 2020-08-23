@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Chefs";
+}
+
+
+@model List<Chef>
+
+<div class="dataContainer">
+    <div class="headerContainer">
+        <a href="">Chefs</a>
+        <a href="/dishes">Dishes</a>
+        <a href="/new"> Add a Chef</a>
+    </div>
+    <h3>Check out our roster of Chefs</h3>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th># of Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var chef in Model)
+            {
+            <tr>
+                <th>@chef.FirstName @chef.LastName</th>
+                <th>@chef.Age</th>
+                <th>@chef.DishesList.Count</th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
